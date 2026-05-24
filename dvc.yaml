@@ -1,0 +1,13 @@
+stages:
+  prepare:
+    cmd: python src/data_loader.py
+    deps:
+      - src/data_loader.py
+    outs:
+      - data/processed/
+
+  train:
+    cmd: python src/modeling.py
+    deps:
+      - src/modeling.py
+      - data/processed/
